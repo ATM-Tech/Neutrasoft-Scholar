@@ -15,15 +15,16 @@ namespace Neutrasoft_Scholar
         public LoginForm()
         {
             InitializeComponent();
+            this.Text = "Neutrasoft Scholar: Login";
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string username = usernameTextBox.Text;
-            string passcode = passcodeTextBox.Text;
+            string username = tbUsername.Text;
+            string passcode = tbPasscode.Text;
             string table;
 
-            if (teacherRadioButton.Checked)
+            if (rdoTeacher.Checked)
             {
                 table = "Teachers";            
                 if (attemptLogin(username, passcode, table))
@@ -31,7 +32,7 @@ namespace Neutrasoft_Scholar
 
                 }
             }
-            else if (studentRadioButton.Checked)
+            else if (rdoStudent.Checked)
             {
                 table = "Students";
                 if (attemptLogin(username, passcode, table))
@@ -41,8 +42,8 @@ namespace Neutrasoft_Scholar
             }
             else
             {
-                errorLabel.Text = "PLEASE SELECT AN OCCUPATION";
-                errorLabel.Visible = true;
+                lblError.Text = "PLEASE SELECT AN OCCUPATION";
+                lblError.Visible = true;
             }
         }
         private bool attemptLogin(string username, string passcode, string table)
@@ -57,8 +58,8 @@ namespace Neutrasoft_Scholar
             //Checks if nothing was returned
             if (!output["Username"].Any() || !output["Passcode"].Any())
             {
-                errorLabel.Text = "INVALID ACCOUNT DETAILS";
-                errorLabel.Visible = true;
+                lblError.Text = "INVALID ACCOUNT DETAILS";
+                lblError.Visible = true;
                 return false;
             }
             //If statements below are redundant, as the If statement above will return if the username or password is blank
@@ -67,14 +68,14 @@ namespace Neutrasoft_Scholar
             {
                 if (output["Passcode"][0] == passcode)
                 {
-                    errorLabel.Text = "LOGIN SUCCESSFUL";
-                    errorLabel.Visible = true;
+                    lblError.Text = "LOGIN SUCCESSFUL";
+                    lblError.Visible = true;
                     return true;
                 }
                 else
                 {
-                    errorLabel.Text = "INVALID ACCOUNT DETAILS";
-                    errorLabel.Visible = true;
+                    lblError.Text = "INVALID ACCOUNT DETAILS";
+                    lblError.Visible = true;
                     return true;
                 }
 
