@@ -25,13 +25,19 @@ namespace Neutrasoft_Scholar
 
             if (teacherRadioButton.Checked)
             {
-                table = "Teachers";
-                attemptLogin(username, passcode, table);
+                table = "Teachers";            
+                if (attemptLogin(username, passcode, table))
+                {
+
+                }
             }
             else if (studentRadioButton.Checked)
             {
                 table = "Students";
-                attemptLogin(username, passcode, table);
+                if (attemptLogin(username, passcode, table))
+                {
+
+                }
             }
             else
             {
@@ -39,7 +45,7 @@ namespace Neutrasoft_Scholar
                 errorLabel.Visible = true;
             }
         }
-        private void attemptLogin(string username, string passcode, string table)
+        private bool attemptLogin(string username, string passcode, string table)
         {
             //Creates Query and passes it to the ReadSQLServer Method, stores result in output
             string query = "SELECT Username,Passcode " +
@@ -53,7 +59,7 @@ namespace Neutrasoft_Scholar
             {
                 errorLabel.Text = "INVALID ACCOUNT DETAILS";
                 errorLabel.Visible = true;
-                return;
+                return false;
             }
             //If statements below are redundant, as the If statement above will return if the username or password is blank
             //It is left here for more readabillity
@@ -63,16 +69,17 @@ namespace Neutrasoft_Scholar
                 {
                     errorLabel.Text = "LOGIN SUCCESSFUL";
                     errorLabel.Visible = true;
-                    return;
+                    return true;
                 }
                 else
                 {
                     errorLabel.Text = "INVALID ACCOUNT DETAILS";
                     errorLabel.Visible = true;
-                    return;
+                    return true;
                 }
 
             }
+            return false;
         }
     }
 }
