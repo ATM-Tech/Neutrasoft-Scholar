@@ -69,5 +69,15 @@ namespace Neutrasoft_Scholar.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Neutrasoft_Scholar_Image_Smaller {
+            get {
+                object obj = ResourceManager.GetObject("Neutrasoft Scholar Image Smaller", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
