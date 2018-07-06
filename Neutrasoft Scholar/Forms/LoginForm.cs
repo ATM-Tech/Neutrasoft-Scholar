@@ -12,6 +12,7 @@ namespace Neutrasoft_Scholar
 {
     public partial class LoginForm : Form
     {
+        private Student student;
         public LoginForm()
         {
             InitializeComponent();
@@ -37,8 +38,12 @@ namespace Neutrasoft_Scholar
                 table = "Students";
                 if (attemptLogin(username, passcode, table))
                 {
-                    StudentPortal.StudentMainPage studentMainPage = new StudentPortal.StudentMainPage();
-                    studentMainPage.ShowDialog();
+                    StudentPortal.StudentMainPage studentMainPage = new StudentPortal.StudentMainPage(student);
+                    studentMainPage.Show();
+                    studentMainPage.Location = this.Location;
+                    studentMainPage.StartPosition = FormStartPosition.Manual;
+                    studentMainPage.FormClosed += (s, args) => Close();
+                    this.Hide();      
                 }
             }
             else
@@ -59,8 +64,7 @@ namespace Neutrasoft_Scholar
             //Checks if nothing was returned
             if (!output["Username"].Any() || !output["Passcode"].Any())
             {
-                lblError.Text = "INVALID ACCOUNT DETAILS";
-                lblError.Visible = true;
+                sendInvalidAccountDetailsError();
                 return false;
             }
             //If statements below are redundant, as the If statement above will return if the username or password is blank
@@ -71,17 +75,23 @@ namespace Neutrasoft_Scholar
                 {
                     lblError.Text = "LOGIN SUCCESSFUL";
                     lblError.Visible = true;
+                    student = new Student(username);
                     return true;
                 }
                 else
                 {
-                    lblError.Text = "INVALID ACCOUNT DETAILS";
-                    lblError.Visible = true;
-                    return true;
+                    sendInvalidAccountDetailsError();
+                    return false;
                 }
 
             }
+            sendInvalidAccountDetailsError();
             return false;
+        }
+        private void sendInvalidAccountDetailsError()
+        {
+            lblError.Text = "INVALID ACCOUNT DETAILS";
+            lblError.Visible = true;
         }
     }
 }
