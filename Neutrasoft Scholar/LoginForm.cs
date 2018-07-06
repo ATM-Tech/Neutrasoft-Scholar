@@ -37,7 +37,8 @@ namespace Neutrasoft_Scholar
                 table = "Students";
                 if (attemptLogin(username, passcode, table))
                 {
-
+                    StudentPortal.StudentMainPage studentMainPage = new StudentPortal.StudentMainPage();
+                    studentMainPage.ShowDialog();
                 }
             }
             else
@@ -64,7 +65,7 @@ namespace Neutrasoft_Scholar
             }
             //If statements below are redundant, as the If statement above will return if the username or password is blank
             //It is left here for more readabillity
-            else if (output["Username"][0] == username)
+            else if (String.Equals(output["Username"][0], username, StringComparison.OrdinalIgnoreCase))
             {
                 if (String.Equals(output["Passcode"][0], passcode))
                 {
