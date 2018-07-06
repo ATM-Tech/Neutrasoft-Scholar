@@ -66,7 +66,7 @@ namespace Neutrasoft_Scholar
             //It is left here for more readabillity
             else if (output["Username"][0] == username)
             {
-                if (output["Passcode"][0] == passcode)
+                if (String.Equals(output["Passcode"][0], passcode))
                 {
                     lblError.Text = "LOGIN SUCCESSFUL";
                     lblError.Visible = true;
