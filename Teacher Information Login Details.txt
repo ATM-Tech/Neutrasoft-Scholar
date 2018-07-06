@@ -1,0 +1,8 @@
+﻿TeacherID,Username,Passcode,FirstName,MiddleName,LastName,Gender,Subject,Assignments,AssignmentTypes
+1,JasYaros000,7:America:Late:2,Jason,Yaroslav,Parker,Male,English Lanuage Arts Pre-AP,"Spelling Worksheet,Noun Quiz,ELA Common Assessment","Daily,Quiz,Test"
+2,ChrCoope000,8-Barbados-Compare-6,Christopher,Eugene,Cooper,Male,Physical Education,"Week 1 Participation,Push Up Quiz,1 Mile Run","Daily,Quiz,Test"
+3,MicRobin000,3&Movement&Make&1,Michael,Ardal,Robinson,Male,Social Studies Pre-AP,"Unit 1 Table of Contents,USA Map,Unit 1 Test","Daily,Quiz,Test"
+4,SarKelly000,3!Cloth!Greece!1,Sarah,Judy,Kelly,Female,Cooking,"Tools Worksheet,Tools Quiz,Live Demonstration of Tools","Daily,Quiz,Test"
+5,MelWilli000,3.Fraction.Killed.5,Melissa,Carrie,Williams,Female,Science Pre-AP,"Body Parts Worksheet,Bones Quiz,Body Parts Test","Daily,Quiz,Test"
+6,StePerry000,9_Water_Likely_3,Stephanie,Toni,Perry,Female,Spanish,"Articles Worksheet,Conjugation Quiz,Unit 1 Test","Daily,Quiz,Test"
+7,HeaWard000,3=Branch=Soon=7,Heather,Jamia,Ward,Female,Algebra Pre-AP,"Week 1 HW,Linear Equations Quiz 1,Linear Equations Test","Daily,Quiz,Test"
