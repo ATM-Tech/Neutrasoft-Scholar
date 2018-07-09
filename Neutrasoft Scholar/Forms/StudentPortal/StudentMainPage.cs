@@ -40,23 +40,22 @@ namespace Neutrasoft_Scholar.StudentPortal
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            PopupForm popup = new PopupForm("This page is already open");
-            popup.Show();
+            MessageBox.Show("This page is already open");
         }
 
         private void btnGradebook_Click(object sender, EventArgs e)
         {
-
+            //TODO
         }
 
         private void btnAttendance_Click(object sender, EventArgs e)
         {
-
+            //TODO
         }
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
-
+            //TODO
         }
     }
 }
