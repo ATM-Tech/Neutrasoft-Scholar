@@ -58,7 +58,22 @@ namespace Neutrasoft_Scholar
             string query = "SELECT Username,Passcode " +
                 "FROM " + table +
                 " WHERE Username='" + username + "'";
-            Dictionary<string, List<string>> output = SQLDatabase.ReadFromSQLServer(query, new List<string> {"Username","Passcode"});
+            Dictionary<string, List<string>> output = null;
+            try
+            {
+                output = SQLDatabase.ReadFromSQLServer(query, new List<string> { "Username", "Passcode" });
+            }
+            catch (SQLDatabase.InvalidColumnException e)
+            {
+                MessageBox.Show("You submitted an invalid query or invalid columns in you SQL Server database request \nDetails: " + e.Message + "\n" + e.StackTrace);
+                return false;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("An error has occured, please restart the program and try again \nDetails: " + e.Message + "\n" + e.StackTrace);
+                return false;
+            }
 
 
             //Checks if nothing was returned
