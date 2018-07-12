@@ -8,19 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-namespace Neutrasoft_Scholar.StudentPortal
+namespace Neutrasoft_Scholar.Forms.StudentPortal
 {
-    public partial class StudentMainPage : Form
+    public partial class StudentSchedule : Form
     {
-        private Student student;
-        public StudentMainPage(Student passthroughStudent)
+        public WindowManager manager;
+
+        public StudentSchedule(WindowManager parentManager)
         {
             InitializeComponent();
-            this.Text = "Neutrasoft Scholar: Student Home";
-            student = passthroughStudent;
 
-            lblStudentName.Text = student.FullName;
+            manager = parentManager;
+
+            lblStudentName.Text = manager.Student.FullName;
         }
 
         private void llbExit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -40,22 +40,22 @@ namespace Neutrasoft_Scholar.StudentPortal
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This page is already open");
+            manager.OpenStudentHome(this);
         }
 
         private void btnGradebook_Click(object sender, EventArgs e)
         {
-            //TODO
+            manager.OpenStudentGradebook(this);
         }
 
         private void btnAttendance_Click(object sender, EventArgs e)
         {
-            //TODO
+            manager.OpenStudentAttendance(this);
         }
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
-            //TODO
+            manager.OpenStudentSchedule(this);
         }
     }
 }

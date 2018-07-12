@@ -1,6 +1,6 @@
-﻿namespace Neutrasoft_Scholar.StudentPortal
+﻿namespace Neutrasoft_Scholar.Forms.StudentPortal
 {
-    partial class StudentMainPage
+    partial class StudentGradebook
     {
         /// <summary>
         /// Required designer variable.
@@ -39,10 +39,10 @@
             this.lblStudentAccess = new System.Windows.Forms.Label();
             this.pnlNavigationBarHolder = new System.Windows.Forms.Panel();
             this.pnlNavigationBar = new System.Windows.Forms.Panel();
+            this.btnSchedule = new System.Windows.Forms.Button();
             this.btnAttendance = new System.Windows.Forms.Button();
             this.btnGradebook = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
-            this.btnSchedule = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlTop.SuspendLayout();
             this.pnlMyAccount.SuspendLayout();
@@ -175,6 +175,17 @@
             this.pnlNavigationBar.Size = new System.Drawing.Size(137, 212);
             this.pnlNavigationBar.TabIndex = 0;
             // 
+            // btnSchedule
+            // 
+            this.btnSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSchedule.Location = new System.Drawing.Point(-1, 155);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(137, 55);
+            this.btnSchedule.TabIndex = 5;
+            this.btnSchedule.Text = "Schedule";
+            this.btnSchedule.UseVisualStyleBackColor = true;
+            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
+            // 
             // btnAttendance
             // 
             this.btnAttendance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -188,37 +199,27 @@
             // 
             // btnGradebook
             // 
+            this.btnGradebook.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnGradebook.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGradebook.Location = new System.Drawing.Point(-1, 51);
             this.btnGradebook.Name = "btnGradebook";
             this.btnGradebook.Size = new System.Drawing.Size(137, 55);
             this.btnGradebook.TabIndex = 3;
             this.btnGradebook.Text = "Gradebook";
-            this.btnGradebook.UseVisualStyleBackColor = true;
+            this.btnGradebook.UseVisualStyleBackColor = false;
             this.btnGradebook.Click += new System.EventHandler(this.btnGradebook_Click);
             // 
             // btnHome
             // 
-            this.btnHome.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnHome.BackColor = System.Drawing.SystemColors.Control;
             this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.Location = new System.Drawing.Point(-1, -1);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(137, 55);
             this.btnHome.TabIndex = 2;
             this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
-            // btnSchedule
-            // 
-            this.btnSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSchedule.Location = new System.Drawing.Point(-1, 155);
-            this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(137, 55);
-            this.btnSchedule.TabIndex = 5;
-            this.btnSchedule.Text = "Schedule";
-            this.btnSchedule.UseVisualStyleBackColor = true;
-            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
             // 
             // pictureBox1
             // 
@@ -229,15 +230,15 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // StudentMainPage
+            // StudentGradebook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 802);
             this.Controls.Add(this.pnlNavigationBarHolder);
             this.Controls.Add(this.pnlTop);
-            this.Name = "StudentMainPage";
-            this.Text = "StudentMainPage";
+            this.Name = "StudentGradebook";
+            this.Text = "Neutrasoft Scholar: Student Gradebook";
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             this.pnlMyAccount.ResumeLayout(false);

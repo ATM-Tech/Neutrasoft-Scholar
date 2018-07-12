@@ -8,15 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Neutrasoft_Scholar
+namespace Neutrasoft_Scholar.Forms
 {
     public partial class LoginForm : Form
     {
-        private Student student;
-        public LoginForm()
+        private WindowManager manager;
+        public LoginForm(WindowManager parentManager)
         {
             InitializeComponent();
-            this.Text = "Neutrasoft Scholar: Login";
+            manager = parentManager;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace Neutrasoft_Scholar
                 table = "Teachers";            
                 if (attemptLogin(username, passcode, table))
                 {
-
+                    //TODO
                 }
             }
             else if (rdoStudent.Checked)
@@ -38,12 +38,8 @@ namespace Neutrasoft_Scholar
                 table = "Students";
                 if (attemptLogin(username, passcode, table))
                 {
-                    StudentPortal.StudentMainPage studentMainPage = new StudentPortal.StudentMainPage(student);
-                    studentMainPage.Show();
-                    studentMainPage.Location = this.Location;
-                    studentMainPage.StartPosition = FormStartPosition.Manual;
-                    studentMainPage.FormClosed += (s, args) => Close();
-                    this.Hide();      
+                    manager.Student = new Student(username);
+                    manager.OpenStudentHome(this);
                 }
             }
             else
@@ -90,7 +86,6 @@ namespace Neutrasoft_Scholar
                 {
                     lblError.Text = "LOGIN SUCCESSFUL";
                     lblError.Visible = true;
-                    student = new Student(username);
                     return true;
                 }
                 else
