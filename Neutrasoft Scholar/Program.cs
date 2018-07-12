@@ -16,7 +16,7 @@ namespace Neutrasoft_Scholar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new WindowManager());
         }
     }
 }

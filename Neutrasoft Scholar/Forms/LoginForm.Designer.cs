@@ -1,4 +1,4 @@
-﻿namespace Neutrasoft_Scholar
+﻿namespace Neutrasoft_Scholar.Forms
 {
     partial class LoginForm
     {
@@ -155,8 +155,8 @@
             this.Controls.Add(this.lblPasscode);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.imgScholar);
-            this.Name = "LoginForm";
-            this.Text = "LoginForm";
+            this.Name = "Neutrasoft Scholar: Login";
+            this.Text = "Neutrasoft Scholar: Login";
             ((System.ComponentModel.ISupportInitialize)(this.imgScholar)).EndInit();
             this.gpRole.ResumeLayout(false);
             this.gpRole.PerformLayout();
