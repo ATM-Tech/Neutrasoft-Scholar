@@ -23,6 +23,7 @@ namespace Neutrasoft_Scholar
         public Teacher(string username)
         {
             Username = username;
+            //Creates the query and the empty output dictionary. 
             string query = "SELECT TeacherID,FirstName,MiddleName,LastName,Gender,Subject " +
                 "FROM Teachers " +
                 "WHERE Username='" + Username + "'";
@@ -30,6 +31,7 @@ namespace Neutrasoft_Scholar
 
             try
             {
+                //Parses all output data and assigns them to the corresponding properties.
                 output = SQLDatabase.ReadFromSQLServer(query, new List<string> { "TeacherID", "FirstName", "MiddleName", "LastName", "Gender", "Subject" });
                 TeacherID = int.Parse(output["TeacherID"][0]);
                 FirstName = output["FirstName"][0];
@@ -40,6 +42,7 @@ namespace Neutrasoft_Scholar
                 FullName = String.Format("{0} {1} {2}", FirstName, MiddleName, LastName);
                 FullNameWithoutMiddleName = String.Format("{0} {1}", FirstName, LastName);
             }
+            //Makes sure that the correct columns were inserted into the database query
             catch (SQLDatabase.InvalidColumnException e)
             {
                DialogResult result =  MessageBox.Show("You submitted an invalid query or invalid columns in you SQL Server database request. Please report this bug to your administrators. The application will now close. \nDetails: " + e.Message + "\n" + e.StackTrace);
@@ -61,6 +64,7 @@ namespace Neutrasoft_Scholar
         public Teacher(int TeacherID)
         {
             this.TeacherID = TeacherID;
+            //Creates the query and the empty output dictionary. 
             string query = "SELECT Username,FirstName,MiddleName,LastName,Gender,Subject " +
                 "FROM Teachers " +
                 "WHERE TeacherID=" + TeacherID;
@@ -68,6 +72,7 @@ namespace Neutrasoft_Scholar
 
             try
             {
+                //Parses all output data and assigns them to the corresponding properties.
                 output = SQLDatabase.ReadFromSQLServer(query, new List<string> { "Username", "FirstName", "MiddleName", "LastName", "Gender", "Subject" });
                 Username = output["Username"][0];
                 FirstName = output["FirstName"][0];
@@ -78,6 +83,7 @@ namespace Neutrasoft_Scholar
                 FullName = String.Format("{0} {1} {2}", FirstName, MiddleName, LastName);
                 FullNameWithoutMiddleName = String.Format("{0} {1}", FirstName, LastName);
             }
+            //Makes sure that the correct columns were inserted into the database query
             catch (SQLDatabase.InvalidColumnException e)
             {
                 DialogResult result = MessageBox.Show("You submitted an invalid query or invalid columns in you SQL Server database request. Please report this bug to your administrators. The application will now close. \nDetails: " + e.Message + "\n" + e.StackTrace);
