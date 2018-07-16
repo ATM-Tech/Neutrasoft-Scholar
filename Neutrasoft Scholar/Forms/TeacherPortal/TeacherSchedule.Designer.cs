@@ -1,6 +1,6 @@
-﻿namespace Neutrasoft_Scholar.Forms.StudentPortal
+﻿namespace Neutrasoft_Scholar.Forms.TeacherPortal
 {
-    partial class StudentHome
+    partial class TeacherSchedule
     {
         /// <summary>
         /// Required designer variable.
@@ -35,22 +35,22 @@
             this.llbLoginHistory = new System.Windows.Forms.LinkLabel();
             this.pnlExit = new System.Windows.Forms.Panel();
             this.llbExit = new System.Windows.Forms.LinkLabel();
-            this.lblStudentName = new System.Windows.Forms.Label();
-            this.lblStudentAccess = new System.Windows.Forms.Label();
+            this.lblTeacherName = new System.Windows.Forms.Label();
+            this.lblTeacherAccess = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlNavigationBarHolder = new System.Windows.Forms.Panel();
             this.pnlNavigationBar = new System.Windows.Forms.Panel();
+            this.btnSchedule = new System.Windows.Forms.Button();
             this.btnAttendance = new System.Windows.Forms.Button();
             this.btnGradebook = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
-            this.btnSchedule = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlTop.SuspendLayout();
             this.pnlMyAccount.SuspendLayout();
             this.pnlLoginHistory.SuspendLayout();
             this.pnlExit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlNavigationBarHolder.SuspendLayout();
             this.pnlNavigationBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -60,8 +60,8 @@
             this.pnlTop.Controls.Add(this.pnlMyAccount);
             this.pnlTop.Controls.Add(this.pnlLoginHistory);
             this.pnlTop.Controls.Add(this.pnlExit);
-            this.pnlTop.Controls.Add(this.lblStudentName);
-            this.pnlTop.Controls.Add(this.lblStudentAccess);
+            this.pnlTop.Controls.Add(this.lblTeacherName);
+            this.pnlTop.Controls.Add(this.lblTeacherAccess);
             this.pnlTop.Controls.Add(this.pictureBox1);
             this.pnlTop.Location = new System.Drawing.Point(-2, 0);
             this.pnlTop.Name = "pnlTop";
@@ -134,25 +134,34 @@
             this.llbExit.Text = "EXIT";
             this.llbExit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbExit_LinkClicked);
             // 
-            // lblStudentName
+            // lblTeacherName
             // 
-            this.lblStudentName.AutoSize = true;
-            this.lblStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStudentName.Location = new System.Drawing.Point(189, 95);
-            this.lblStudentName.Name = "lblStudentName";
-            this.lblStudentName.Size = new System.Drawing.Size(310, 24);
-            this.lblStudentName.TabIndex = 2;
-            this.lblStudentName.Text = "{FirstName MiddleName LastName}";
+            this.lblTeacherName.AutoSize = true;
+            this.lblTeacherName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeacherName.Location = new System.Drawing.Point(189, 95);
+            this.lblTeacherName.Name = "lblTeacherName";
+            this.lblTeacherName.Size = new System.Drawing.Size(310, 24);
+            this.lblTeacherName.TabIndex = 2;
+            this.lblTeacherName.Text = "{FirstName MiddleName LastName}";
             // 
-            // lblStudentAccess
+            // lblTeacherAccess
             // 
-            this.lblStudentAccess.AutoSize = true;
-            this.lblStudentAccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStudentAccess.Location = new System.Drawing.Point(189, 24);
-            this.lblStudentAccess.Name = "lblStudentAccess";
-            this.lblStudentAccess.Size = new System.Drawing.Size(141, 24);
-            this.lblStudentAccess.TabIndex = 1;
-            this.lblStudentAccess.Text = "Student Access";
+            this.lblTeacherAccess.AutoSize = true;
+            this.lblTeacherAccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeacherAccess.Location = new System.Drawing.Point(189, 24);
+            this.lblTeacherAccess.Name = "lblTeacherAccess";
+            this.lblTeacherAccess.Size = new System.Drawing.Size(148, 24);
+            this.lblTeacherAccess.TabIndex = 1;
+            this.lblTeacherAccess.Text = "Teacher Access";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Neutrasoft_Scholar.Properties.Resources.Neutrasoft_Scholar_Image_Smaller;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(183, 151);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // pnlNavigationBarHolder
             // 
@@ -174,6 +183,18 @@
             this.pnlNavigationBar.Name = "pnlNavigationBar";
             this.pnlNavigationBar.Size = new System.Drawing.Size(137, 212);
             this.pnlNavigationBar.TabIndex = 0;
+            // 
+            // btnSchedule
+            // 
+            this.btnSchedule.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSchedule.Location = new System.Drawing.Point(-1, 155);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(137, 55);
+            this.btnSchedule.TabIndex = 5;
+            this.btnSchedule.Text = "Schedule";
+            this.btnSchedule.UseVisualStyleBackColor = false;
+            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
             // 
             // btnAttendance
             // 
@@ -199,45 +220,25 @@
             // 
             // btnHome
             // 
-            this.btnHome.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnHome.BackColor = System.Drawing.SystemColors.Control;
             this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.Location = new System.Drawing.Point(-1, -1);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(137, 55);
             this.btnHome.TabIndex = 2;
             this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // btnSchedule
-            // 
-            this.btnSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSchedule.Location = new System.Drawing.Point(-1, 155);
-            this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(137, 55);
-            this.btnSchedule.TabIndex = 5;
-            this.btnSchedule.Text = "Schedule";
-            this.btnSchedule.UseVisualStyleBackColor = true;
-            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Neutrasoft_Scholar.Properties.Resources.Neutrasoft_Scholar_Image_Smaller;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(183, 151);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // StudentMainPage
+            // TeacherSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 802);
             this.Controls.Add(this.pnlNavigationBarHolder);
             this.Controls.Add(this.pnlTop);
-            this.Name = "StudentHome";
-            this.Text = "Neutrasoft Scholar: Student Home";
+            this.Name = "TeacherSchedule";
+            this.Text = "Neutrasoft Scholar: Teacher Schedule";
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             this.pnlMyAccount.ResumeLayout(false);
@@ -246,9 +247,9 @@
             this.pnlLoginHistory.PerformLayout();
             this.pnlExit.ResumeLayout(false);
             this.pnlExit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlNavigationBarHolder.ResumeLayout(false);
             this.pnlNavigationBar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -257,8 +258,8 @@
 
         private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblStudentName;
-        private System.Windows.Forms.Label lblStudentAccess;
+        private System.Windows.Forms.Label lblTeacherName;
+        private System.Windows.Forms.Label lblTeacherAccess;
         private System.Windows.Forms.Panel pnlExit;
         private System.Windows.Forms.LinkLabel llbExit;
         private System.Windows.Forms.Panel pnlNavigationBarHolder;

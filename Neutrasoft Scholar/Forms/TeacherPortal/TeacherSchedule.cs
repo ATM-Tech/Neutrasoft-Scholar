@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,20 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-namespace Neutrasoft_Scholar.Forms.StudentPortal
+namespace Neutrasoft_Scholar.Forms.TeacherPortal
 {
-    public partial class StudentHome : Form
+    public partial class TeacherSchedule : Form
     {
         public WindowManager manager;
 
-        public StudentHome(WindowManager parentManager)
+        public TeacherSchedule(WindowManager parentManager)
         {
             InitializeComponent();
 
             manager = parentManager;
 
-            lblStudentName.Text = manager.ActiveStudent.FullName;
+            lblTeacherName.Text = manager.ActiveTeacher.FullName;
         }
 
         private void llbExit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -42,22 +40,23 @@ namespace Neutrasoft_Scholar.Forms.StudentPortal
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            manager.OpenStudentHome(this);
+            manager.OpenTeacherHome(this);
         }
 
         private void btnGradebook_Click(object sender, EventArgs e)
         {
-            manager.OpenStudentGradebook(this);
+            manager.OpenTeacherGradebook(this);
         }
 
         private void btnAttendance_Click(object sender, EventArgs e)
         {
-            manager.OpenStudentAttendance(this);
+            manager.OpenTeacherAttendance(this);
         }
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
-            manager.OpenStudentSchedule(this);
+            manager.OpenTeacherSchedule(this);
         }
     }
 }
+
