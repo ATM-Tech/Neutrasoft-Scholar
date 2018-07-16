@@ -12,6 +12,7 @@ using Neutrasoft_Scholar.Forms;
 
 namespace Neutrasoft_Scholar
 {
+    //Manages all windows to prevent any from continuing to use memory after they are out of view from the user. 
     public partial class WindowManager : Form
     {
         private FormClosedEventHandler formClosedHandler;
@@ -20,6 +21,7 @@ namespace Neutrasoft_Scholar
         public WindowManager()
         {
             InitializeComponent();
+            //Creates a Handler that contains what to do if a form closes. This allow easy removal of the handler at a later point
             formClosedHandler = (s, args) => this.Close();
 
             LoginForm loginForm = new LoginForm(this);
@@ -48,7 +50,7 @@ namespace Neutrasoft_Scholar
         public void OpenStudentGradebook(Form caller)
         {
 
-            //Opens student home
+            //Opens student gradebook
             Forms.StudentPortal.StudentGradebook studentPage = new Forms.StudentPortal.StudentGradebook(this)
             {
                 Location = caller.Location,
@@ -67,7 +69,7 @@ namespace Neutrasoft_Scholar
         public void OpenStudentAttendance(Form caller)
         {
 
-            //Opens student home
+            //Opens student atttendance
             Forms.StudentPortal.StudentAttendance studentPage = new Forms.StudentPortal.StudentAttendance(this)
             {
                 Location = caller.Location,
@@ -86,7 +88,7 @@ namespace Neutrasoft_Scholar
         public void OpenStudentSchedule(Form caller)
         {
 
-            //Opens student home
+            //Opens student schedule
             Forms.StudentPortal.StudentSchedule studentPage = new Forms.StudentPortal.StudentSchedule(this)
             {
                 Location = caller.Location,
@@ -105,7 +107,7 @@ namespace Neutrasoft_Scholar
         public void OpenTeacherHome(Form caller)
         {
 
-            //Opens student home
+            //Opens teacher home
             Forms.TeacherPortal.TeacherHome teacherPage = new Forms.TeacherPortal.TeacherHome(this)
             {
                 Location = caller.Location,
@@ -123,7 +125,7 @@ namespace Neutrasoft_Scholar
         public void OpenTeacherGradebook(Form caller)
         {
 
-            //Opens student home
+            //Opens teacher gradebook
             Forms.TeacherPortal.TeacherGradebook teacherPage = new Forms.TeacherPortal.TeacherGradebook(this)
             {
                 Location = caller.Location,
@@ -141,7 +143,7 @@ namespace Neutrasoft_Scholar
         public void OpenTeacherAttendance(Form caller)
         {
 
-            //Opens student home
+            //Opens teacher attendance
             Forms.TeacherPortal.TeacherAttendance teacherPage = new Forms.TeacherPortal.TeacherAttendance(this)
             {
                 Location = caller.Location,
@@ -159,7 +161,7 @@ namespace Neutrasoft_Scholar
         public void OpenTeacherSchedule(Form caller)
         {
 
-            //Opens student home
+            //Opens teacher schedule
             Forms.TeacherPortal.TeacherSchedule teacherPage = new Forms.TeacherPortal.TeacherSchedule(this)
             {
                 Location = caller.Location,
