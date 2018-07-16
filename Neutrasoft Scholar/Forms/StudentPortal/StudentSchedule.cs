@@ -20,7 +20,7 @@ namespace Neutrasoft_Scholar.Forms.StudentPortal
 
             manager = parentManager;
 
-            lblStudentName.Text = manager.Student.FullName;
+            lblStudentName.Text = manager.ActiveStudent.FullName;
         }
 
         private void llbExit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

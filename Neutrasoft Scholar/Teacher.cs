@@ -8,9 +8,9 @@ using System.Windows.Forms;
 namespace Neutrasoft_Scholar
 {
     //Class to store all information for one student
-    public class Student
+    public class Teacher
     {
-        public int StudentID { get; }
+        public int TeacherID { get; }
         public string Username { get; }
         public string FirstName { get; }
         public string MiddleName { get; }
@@ -18,23 +18,25 @@ namespace Neutrasoft_Scholar
         public string FullName { get; }
         public string FullNameWithoutMiddleName { get; }
         public string Gender { get; }
+        public string Subject { get;  }
 
-        public Student(string username)
+        public Teacher(string username)
         {
             Username = username;
-            string query = "SELECT StudentID,FirstName,MiddleName,LastName,Gender " +
-                "FROM Students " +
+            string query = "SELECT TeacherID,FirstName,MiddleName,LastName,Gender,Subject " +
+                "FROM Teachers " +
                 "WHERE Username='" + Username + "'";
             Dictionary<string, List<string>> output = null;  
 
             try
             {
-                output = SQLDatabase.ReadFromSQLServer(query, new List<string> { "StudentID", "FirstName", "MiddleName", "LastName", "Gender" });
-                StudentID = int.Parse(output["StudentID"][0]);
+                output = SQLDatabase.ReadFromSQLServer(query, new List<string> { "TeacherID", "FirstName", "MiddleName", "LastName", "Gender", "Subject" });
+                TeacherID = int.Parse(output["TeacherID"][0]);
                 FirstName = output["FirstName"][0];
                 MiddleName = output["MiddleName"][0];
                 LastName = output["LastName"][0];
                 Gender = output["Gender"][0];
+                Subject = output["Subject"][0];
                 FullName = String.Format("{0} {1} {2}", FirstName, MiddleName, LastName);
                 FullNameWithoutMiddleName = String.Format("{0} {1}", FirstName, LastName);
             }
@@ -56,22 +58,23 @@ namespace Neutrasoft_Scholar
             }
 
         }
-        public Student(int StudentID)
+        public Teacher(int TeacherID)
         {
-            this.StudentID = StudentID;
-            string query = "SELECT Username,FirstName,MiddleName,LastName,Gender " +
-                "FROM Students " +
-                "WHERE StudentID=" + StudentID;
+            this.TeacherID = TeacherID;
+            string query = "SELECT Username,FirstName,MiddleName,LastName,Gender,Subject " +
+                "FROM Teachers " +
+                "WHERE TeacherID=" + TeacherID;
             Dictionary<string, List<string>> output = null;
 
             try
             {
-                output = SQLDatabase.ReadFromSQLServer(query, new List<string> { "Username", "FirstName", "MiddleName", "LastName", "Gender" });
+                output = SQLDatabase.ReadFromSQLServer(query, new List<string> { "Username", "FirstName", "MiddleName", "LastName", "Gender", "Subject" });
                 Username = output["Username"][0];
                 FirstName = output["FirstName"][0];
                 MiddleName = output["MiddleName"][0];
                 LastName = output["LastName"][0];
                 Gender = output["Gender"][0];
+                Subject = output["Subject"][0];
                 FullName = String.Format("{0} {1} {2}", FirstName, MiddleName, LastName);
                 FullNameWithoutMiddleName = String.Format("{0} {1}", FirstName, LastName);
             }

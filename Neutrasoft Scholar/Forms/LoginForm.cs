@@ -30,7 +30,8 @@ namespace Neutrasoft_Scholar.Forms
                 table = "Teachers";            
                 if (attemptLogin(username, passcode, table))
                 {
-                    //TODO
+                    manager.ActiveTeacher = new Teacher(username);
+                    manager.OpenTeacherHome(this);
                 }
             }
             else if (rdoStudent.Checked)
@@ -38,7 +39,7 @@ namespace Neutrasoft_Scholar.Forms
                 table = "Students";
                 if (attemptLogin(username, passcode, table))
                 {
-                    manager.Student = new Student(username);
+                    manager.ActiveStudent = new Student(username);
                     manager.OpenStudentHome(this);
                 }
             }
