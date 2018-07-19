@@ -18,13 +18,15 @@ namespace Neutrasoft_Scholar
         public string FullName { get; }
         public string FullNameWithoutMiddleName { get; }
         public string Gender { get; }
-        public string Subject { get;  }
+        public string Pronoun { get; }
+        public string Subject { get; }
+        public int RoomNumber { get; }
 
         public Teacher(string username)
         {
             Username = username;
             //Creates the query and the empty output dictionary. 
-            string query = "SELECT TeacherID,FirstName,MiddleName,LastName,Gender,Subject " +
+            string query = "SELECT TeacherID,FirstName,MiddleName,LastName,Gender,Subject,RoomNumber " +
                 "FROM Teachers " +
                 "WHERE Username='" + Username + "'";
             Dictionary<string, List<string>> output = null;  
@@ -32,15 +34,24 @@ namespace Neutrasoft_Scholar
             try
             {
                 //Parses all output data and assigns them to the corresponding properties.
-                output = SQLDatabase.ReadFromSQLServer(query, new List<string> { "TeacherID", "FirstName", "MiddleName", "LastName", "Gender", "Subject" });
+                output = SQLDatabase.ReadFromSQLServer(query, new List<string> { "TeacherID", "FirstName", "MiddleName", "LastName", "Gender", "Subject", "RoomNumber" });
                 TeacherID = int.Parse(output["TeacherID"][0]);
                 FirstName = output["FirstName"][0];
                 MiddleName = output["MiddleName"][0];
                 LastName = output["LastName"][0];
                 Gender = output["Gender"][0];
                 Subject = output["Subject"][0];
+                RoomNumber = int.Parse(output["RoomNumber"][0]);
                 FullName = String.Format("{0} {1} {2}", FirstName, MiddleName, LastName);
                 FullNameWithoutMiddleName = String.Format("{0} {1}", FirstName, LastName);
+                if (Gender == "Male")
+                {
+                    Pronoun = "Mr. ";
+                }
+                else
+                {
+                    Pronoun = "Ms. ";
+                }
             }
             //Makes sure that the correct columns were inserted into the database query
             catch (SQLDatabase.InvalidColumnException e)
@@ -65,7 +76,7 @@ namespace Neutrasoft_Scholar
         {
             this.TeacherID = TeacherID;
             //Creates the query and the empty output dictionary. 
-            string query = "SELECT Username,FirstName,MiddleName,LastName,Gender,Subject " +
+            string query = "SELECT Username,FirstName,MiddleName,LastName,Gender,Subject,RoomNumber " +
                 "FROM Teachers " +
                 "WHERE TeacherID=" + TeacherID;
             Dictionary<string, List<string>> output = null;
@@ -73,15 +84,24 @@ namespace Neutrasoft_Scholar
             try
             {
                 //Parses all output data and assigns them to the corresponding properties.
-                output = SQLDatabase.ReadFromSQLServer(query, new List<string> { "Username", "FirstName", "MiddleName", "LastName", "Gender", "Subject" });
+                output = SQLDatabase.ReadFromSQLServer(query, new List<string> { "Username", "FirstName", "MiddleName", "LastName", "Gender", "Subject", "RoomNumber" });
                 Username = output["Username"][0];
                 FirstName = output["FirstName"][0];
                 MiddleName = output["MiddleName"][0];
                 LastName = output["LastName"][0];
                 Gender = output["Gender"][0];
                 Subject = output["Subject"][0];
+                RoomNumber = int.Parse(output["RoomNumber"][0]);
                 FullName = String.Format("{0} {1} {2}", FirstName, MiddleName, LastName);
                 FullNameWithoutMiddleName = String.Format("{0} {1}", FirstName, LastName);
+                if (Gender == "Male")
+                {
+                    Pronoun = "Mr. ";
+                }
+                else
+                {
+                    Pronoun = "Ms. ";
+                }
             }
             //Makes sure that the correct columns were inserted into the database query
             catch (SQLDatabase.InvalidColumnException e)
