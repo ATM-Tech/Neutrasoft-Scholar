@@ -62,17 +62,18 @@ namespace Neutrasoft_Scholar.Forms.StudentPortal
 
         private void FillInTable()
         {
-
+            //Grabs all the periods and correlated TeacherIDs related to the Active Student
             string query = String.Format("SELECT Period,TeacherID FROM Grades WHERE StudentID={0} ORDER BY Period", manager.ActiveStudent.StudentID);
             Dictionary<string, List<string>> output = SQLDatabase.ReadFromSQLServer(query, new List<string> { "Period", "TeacherID" });
             for (int i = 0; i < 7; i++)
             {
+                //Constructs a Teacher for each period
                 Teacher teacher = new Teacher(int.Parse(output["TeacherID"][i]));
 
                 string period = "Period " + (i + 1);
                 string teacherName = teacher.Pronoun + teacher.FullNameWithoutMiddleName;
 
-                
+                //Creates a row and fill the cells in with data relating to the columns. Also sets height
                 DataGridViewRow row = (DataGridViewRow)dgvStudentSchedule.RowTemplate.Clone();
                 row.CreateCells(dgvStudentSchedule);
                 row.Cells[0].Value = period;
@@ -81,6 +82,7 @@ namespace Neutrasoft_Scholar.Forms.StudentPortal
                 row.Cells[3].Value = teacher.RoomNumber;
                 row.Height = 75;
 
+                //Adds row to table
                 dgvStudentSchedule.Rows.Add(row);
             }
         }
