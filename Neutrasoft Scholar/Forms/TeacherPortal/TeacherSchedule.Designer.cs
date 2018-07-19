@@ -44,6 +44,10 @@
             this.btnAttendance = new System.Windows.Forms.Button();
             this.btnGradebook = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
+            this.cmbPeriod = new System.Windows.Forms.ComboBox();
+            this.dgvTeacherSchedule = new System.Windows.Forms.DataGridView();
+            this.StudentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GenderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTop.SuspendLayout();
             this.pnlMyAccount.SuspendLayout();
             this.pnlLoginHistory.SuspendLayout();
@@ -51,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlNavigationBarHolder.SuspendLayout();
             this.pnlNavigationBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherSchedule)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -230,11 +235,67 @@
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
+            // cmbPeriod
+            // 
+            this.cmbPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPeriod.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmbPeriod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPeriod.FormattingEnabled = true;
+            this.cmbPeriod.Items.AddRange(new object[] {
+            "<Select Period>",
+            "Period 1",
+            "Period 2",
+            "Period 3",
+            "Period 4",
+            "Period 5",
+            "Period 6",
+            "Period 7"});
+            this.cmbPeriod.Location = new System.Drawing.Point(218, 158);
+            this.cmbPeriod.Name = "cmbPeriod";
+            this.cmbPeriod.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cmbPeriod.Size = new System.Drawing.Size(937, 28);
+            this.cmbPeriod.TabIndex = 2;
+            this.cmbPeriod.SelectedIndexChanged += new System.EventHandler(this.cmbPeriod_SelectedIndexChanged);
+            // 
+            // dgvTeacherSchedule
+            // 
+            this.dgvTeacherSchedule.AllowUserToAddRows = false;
+            this.dgvTeacherSchedule.AllowUserToDeleteRows = false;
+            this.dgvTeacherSchedule.AllowUserToResizeColumns = false;
+            this.dgvTeacherSchedule.AllowUserToResizeRows = false;
+            this.dgvTeacherSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTeacherSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.StudentColumn,
+            this.GenderColumn});
+            this.dgvTeacherSchedule.Location = new System.Drawing.Point(218, 192);
+            this.dgvTeacherSchedule.Name = "dgvTeacherSchedule";
+            this.dgvTeacherSchedule.ReadOnly = true;
+            this.dgvTeacherSchedule.RowHeadersVisible = false;
+            this.dgvTeacherSchedule.Size = new System.Drawing.Size(933, 587);
+            this.dgvTeacherSchedule.TabIndex = 3;
+            this.dgvTeacherSchedule.Visible = false;
+            // 
+            // StudentColumn
+            // 
+            this.StudentColumn.HeaderText = "Student";
+            this.StudentColumn.Name = "StudentColumn";
+            this.StudentColumn.ReadOnly = true;
+            this.StudentColumn.Width = 465;
+            // 
+            // GenderColumn
+            // 
+            this.GenderColumn.HeaderText = "Gender";
+            this.GenderColumn.Name = "GenderColumn";
+            this.GenderColumn.ReadOnly = true;
+            this.GenderColumn.Width = 465;
+            // 
             // TeacherSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 802);
+            this.Controls.Add(this.dgvTeacherSchedule);
+            this.Controls.Add(this.cmbPeriod);
             this.Controls.Add(this.pnlNavigationBarHolder);
             this.Controls.Add(this.pnlTop);
             this.Name = "TeacherSchedule";
@@ -250,6 +311,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlNavigationBarHolder.ResumeLayout(false);
             this.pnlNavigationBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherSchedule)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -272,5 +334,9 @@
         private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button btnGradebook;
         private System.Windows.Forms.Button btnSchedule;
+        private System.Windows.Forms.ComboBox cmbPeriod;
+        private System.Windows.Forms.DataGridView dgvTeacherSchedule;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GenderColumn;
     }
 }
