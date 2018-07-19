@@ -73,7 +73,7 @@ namespace Neutrasoft_Scholar.Forms.StudentPortal
                 string period = "Period " + (i + 1);
                 string teacherName = teacher.Pronoun + teacher.FullNameWithoutMiddleName;
 
-                //Creates a row and fill the cells in with data relating to the columns. Also sets height
+                //Creates a row and fills the cells in with data relating to the columns. Also sets height
                 DataGridViewRow row = (DataGridViewRow)dgvStudentSchedule.RowTemplate.Clone();
                 row.CreateCells(dgvStudentSchedule);
                 row.Cells[0].Value = period;
