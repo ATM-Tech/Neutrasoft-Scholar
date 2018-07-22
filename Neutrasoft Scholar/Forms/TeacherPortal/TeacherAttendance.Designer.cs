@@ -44,6 +44,14 @@
             this.btnAttendance = new System.Windows.Forms.Button();
             this.btnGradebook = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.cmbPeriod = new System.Windows.Forms.ComboBox();
+            this.dgvTeacherAttendance = new System.Windows.Forms.DataGridView();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PresentColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TardyColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.AbsentColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pnlTop.SuspendLayout();
             this.pnlMyAccount.SuspendLayout();
             this.pnlLoginHistory.SuspendLayout();
@@ -51,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlNavigationBarHolder.SuspendLayout();
             this.pnlNavigationBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherAttendance)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -230,11 +239,99 @@
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(218, 158);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(256, 25);
+            this.lblDate.TabIndex = 2;
+            this.lblDate.Text = "Attendance for {DATE}:";
+            // 
+            // cmbPeriod
+            // 
+            this.cmbPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPeriod.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmbPeriod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPeriod.FormattingEnabled = true;
+            this.cmbPeriod.Items.AddRange(new object[] {
+            "<Select Period>",
+            "Period 1",
+            "Period 2",
+            "Period 3",
+            "Period 4",
+            "Period 5",
+            "Period 6",
+            "Period 7"});
+            this.cmbPeriod.Location = new System.Drawing.Point(217, 186);
+            this.cmbPeriod.Name = "cmbPeriod";
+            this.cmbPeriod.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cmbPeriod.Size = new System.Drawing.Size(937, 28);
+            this.cmbPeriod.TabIndex = 3;
+            this.cmbPeriod.SelectedIndexChanged += new System.EventHandler(this.cmbPeriod_SelectedIndexChanged);
+            // 
+            // dgvTeacherAttendance
+            // 
+            this.dgvTeacherAttendance.AllowUserToAddRows = false;
+            this.dgvTeacherAttendance.AllowUserToResizeColumns = false;
+            this.dgvTeacherAttendance.AllowUserToResizeRows = false;
+            this.dgvTeacherAttendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTeacherAttendance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NameColumn,
+            this.PresentColumn,
+            this.TardyColumn,
+            this.AbsentColumn});
+            this.dgvTeacherAttendance.Location = new System.Drawing.Point(217, 220);
+            this.dgvTeacherAttendance.Name = "dgvTeacherAttendance";
+            this.dgvTeacherAttendance.RowHeadersVisible = false;
+            this.dgvTeacherAttendance.Size = new System.Drawing.Size(934, 538);
+            this.dgvTeacherAttendance.TabIndex = 4;
+            this.dgvTeacherAttendance.Visible = false;
+            this.dgvTeacherAttendance.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTeacherAttendance_CellContentClick);
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Location = new System.Drawing.Point(1005, 765);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(146, 23);
+            this.btnSubmit.TabIndex = 5;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Visible = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.HeaderText = "Name";
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
+            this.NameColumn.Width = 300;
+            // 
+            // PresentColumn
+            // 
+            this.PresentColumn.HeaderText = "Present?";
+            this.PresentColumn.Name = "PresentColumn";
+            // 
+            // TardyColumn
+            // 
+            this.TardyColumn.HeaderText = "Tardy?";
+            this.TardyColumn.Name = "TardyColumn";
+            // 
+            // AbsentColumn
+            // 
+            this.AbsentColumn.HeaderText = "Absent?";
+            this.AbsentColumn.Name = "AbsentColumn";
+            // 
             // TeacherAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 802);
+            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.dgvTeacherAttendance);
+            this.Controls.Add(this.cmbPeriod);
+            this.Controls.Add(this.lblDate);
             this.Controls.Add(this.pnlNavigationBarHolder);
             this.Controls.Add(this.pnlTop);
             this.Name = "TeacherAttendance";
@@ -250,7 +347,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlNavigationBarHolder.ResumeLayout(false);
             this.pnlNavigationBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherAttendance)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -272,5 +371,13 @@
         private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button btnGradebook;
         private System.Windows.Forms.Button btnSchedule;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.ComboBox cmbPeriod;
+        private System.Windows.Forms.DataGridView dgvTeacherAttendance;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn PresentColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn TardyColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn AbsentColumn;
     }
 }
