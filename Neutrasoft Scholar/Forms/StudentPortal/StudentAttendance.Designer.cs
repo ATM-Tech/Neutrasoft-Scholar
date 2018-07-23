@@ -37,20 +37,26 @@
             this.llbExit = new System.Windows.Forms.LinkLabel();
             this.lblStudentName = new System.Windows.Forms.Label();
             this.lblStudentAccess = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlNavigationBarHolder = new System.Windows.Forms.Panel();
             this.pnlNavigationBar = new System.Windows.Forms.Panel();
             this.btnSchedule = new System.Windows.Forms.Button();
             this.btnAttendance = new System.Windows.Forms.Button();
             this.btnGradebook = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dgvStudentAttendance = new System.Windows.Forms.DataGridView();
+            this.DateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PeriodColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExcusedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTop.SuspendLayout();
             this.pnlMyAccount.SuspendLayout();
             this.pnlLoginHistory.SuspendLayout();
             this.pnlExit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlNavigationBarHolder.SuspendLayout();
             this.pnlNavigationBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudentAttendance)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -154,6 +160,15 @@
             this.lblStudentAccess.TabIndex = 1;
             this.lblStudentAccess.Text = "Student Access";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Neutrasoft_Scholar.Properties.Resources.Neutrasoft_Scholar_Image_Smaller;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(183, 151);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // pnlNavigationBarHolder
             // 
             this.pnlNavigationBarHolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -221,20 +236,56 @@
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // pictureBox1
+            // dgvStudentAttendance
             // 
-            this.pictureBox1.Image = global::Neutrasoft_Scholar.Properties.Resources.Neutrasoft_Scholar_Image_Smaller;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(183, 151);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.dgvStudentAttendance.AllowUserToAddRows = false;
+            this.dgvStudentAttendance.AllowUserToDeleteRows = false;
+            this.dgvStudentAttendance.AllowUserToResizeColumns = false;
+            this.dgvStudentAttendance.AllowUserToResizeRows = false;
+            this.dgvStudentAttendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudentAttendance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DateColumn,
+            this.PeriodColumn,
+            this.StateColumn,
+            this.ExcusedColumn});
+            this.dgvStudentAttendance.Location = new System.Drawing.Point(209, 150);
+            this.dgvStudentAttendance.Name = "dgvStudentAttendance";
+            this.dgvStudentAttendance.ReadOnly = true;
+            this.dgvStudentAttendance.RowHeadersVisible = false;
+            this.dgvStudentAttendance.Size = new System.Drawing.Size(955, 655);
+            this.dgvStudentAttendance.TabIndex = 2;
+            // 
+            // DateColumn
+            // 
+            this.DateColumn.HeaderText = "Date";
+            this.DateColumn.Name = "DateColumn";
+            this.DateColumn.ReadOnly = true;
+            this.DateColumn.Width = 250;
+            // 
+            // PeriodColumn
+            // 
+            this.PeriodColumn.HeaderText = "Period";
+            this.PeriodColumn.Name = "PeriodColumn";
+            this.PeriodColumn.ReadOnly = true;
+            // 
+            // StateColumn
+            // 
+            this.StateColumn.HeaderText = "Absent/Tardy";
+            this.StateColumn.Name = "StateColumn";
+            this.StateColumn.ReadOnly = true;
+            // 
+            // ExcusedColumn
+            // 
+            this.ExcusedColumn.HeaderText = "Excused";
+            this.ExcusedColumn.Name = "ExcusedColumn";
+            this.ExcusedColumn.ReadOnly = true;
             // 
             // StudentAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 802);
+            this.Controls.Add(this.dgvStudentAttendance);
             this.Controls.Add(this.pnlNavigationBarHolder);
             this.Controls.Add(this.pnlTop);
             this.Name = "StudentAttendance";
@@ -247,9 +298,10 @@
             this.pnlLoginHistory.PerformLayout();
             this.pnlExit.ResumeLayout(false);
             this.pnlExit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlNavigationBarHolder.ResumeLayout(false);
             this.pnlNavigationBar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudentAttendance)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -272,5 +324,10 @@
         private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button btnGradebook;
         private System.Windows.Forms.Button btnSchedule;
+        private System.Windows.Forms.DataGridView dgvStudentAttendance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PeriodColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StateColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExcusedColumn;
     }
 }
