@@ -23,8 +23,8 @@ namespace Neutrasoft_Scholar.Forms.TeacherPortal
             manager = parentManager;
 
             lblTeacherName.Text = manager.ActiveTeacher.FullName;
-            //Sets date label
-            string dateString = String.Format("{0:dddd, MMMM  dd, yyyy}", DateTime.Now);
+            //Sets date label to the format "DayOfTheWeek, NameOfMonth DayNumber, YearNumber" of the current date
+            string dateString = String.Format("{0:dddd, MMMM dd, yyyy}", DateTime.Now);
             lblDate.Text = "Attendance for " + dateString + ":";
 
 
