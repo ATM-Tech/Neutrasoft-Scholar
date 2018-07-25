@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OutlookGridControl">
+      <HintPath>DLLs\OutlookGridControl.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -46,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assignment.cs" />
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +67,12 @@
     </Compile>
     <Compile Include="Forms\StudentPortal\StudentGradebook.Designer.cs">
       <DependentUpon>StudentGradebook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StudentPortal\StudentGradebookAssignments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentPortal\StudentGradebookAssignments.Designer.cs">
+      <DependentUpon>StudentGradebookAssignments.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\StudentPortal\StudentSchedule.cs">
       <SubType>Form</SubType>
@@ -119,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StudentPortal\StudentGradebook.resx">
       <DependentUpon>StudentGradebook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentPortal\StudentGradebookAssignments.resx">
+      <DependentUpon>StudentGradebookAssignments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StudentPortal\StudentSchedule.resx">
       <DependentUpon>StudentSchedule.cs</DependentUpon>

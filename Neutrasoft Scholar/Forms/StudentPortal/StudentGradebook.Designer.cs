@@ -37,20 +37,27 @@
             this.llbExit = new System.Windows.Forms.LinkLabel();
             this.lblStudentName = new System.Windows.Forms.Label();
             this.lblStudentAccess = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlNavigationBarHolder = new System.Windows.Forms.Panel();
             this.pnlNavigationBar = new System.Windows.Forms.Panel();
             this.btnSchedule = new System.Windows.Forms.Button();
             this.btnAttendance = new System.Windows.Forms.Button();
             this.btnGradebook = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dgvStudentGradebook = new System.Windows.Forms.DataGridView();
+            this.PeriodColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeacherColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubjectColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Average = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AssignmentsColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlTop.SuspendLayout();
             this.pnlMyAccount.SuspendLayout();
             this.pnlLoginHistory.SuspendLayout();
             this.pnlExit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlNavigationBarHolder.SuspendLayout();
             this.pnlNavigationBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudentGradebook)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -154,6 +161,15 @@
             this.lblStudentAccess.TabIndex = 1;
             this.lblStudentAccess.Text = "Student Access";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Neutrasoft_Scholar.Properties.Resources.Neutrasoft_Scholar_Image_Smaller;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(183, 151);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // pnlNavigationBarHolder
             // 
             this.pnlNavigationBarHolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -221,20 +237,68 @@
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // pictureBox1
+            // dgvStudentGradebook
             // 
-            this.pictureBox1.Image = global::Neutrasoft_Scholar.Properties.Resources.Neutrasoft_Scholar_Image_Smaller;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(183, 151);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.dgvStudentGradebook.AllowUserToAddRows = false;
+            this.dgvStudentGradebook.AllowUserToDeleteRows = false;
+            this.dgvStudentGradebook.AllowUserToResizeColumns = false;
+            this.dgvStudentGradebook.AllowUserToResizeRows = false;
+            this.dgvStudentGradebook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudentGradebook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PeriodColumn,
+            this.TeacherColumn,
+            this.SubjectColumn,
+            this.Average,
+            this.AssignmentsColumn});
+            this.dgvStudentGradebook.Location = new System.Drawing.Point(209, 150);
+            this.dgvStudentGradebook.Name = "dgvStudentGradebook";
+            this.dgvStudentGradebook.ReadOnly = true;
+            this.dgvStudentGradebook.RowHeadersVisible = false;
+            this.dgvStudentGradebook.Size = new System.Drawing.Size(955, 655);
+            this.dgvStudentGradebook.TabIndex = 3;
+            this.dgvStudentGradebook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudentGradebook_CellContentClick);
+            // 
+            // PeriodColumn
+            // 
+            this.PeriodColumn.HeaderText = "Period";
+            this.PeriodColumn.Name = "PeriodColumn";
+            this.PeriodColumn.ReadOnly = true;
+            // 
+            // TeacherColumn
+            // 
+            this.TeacherColumn.HeaderText = "Teacher";
+            this.TeacherColumn.Name = "TeacherColumn";
+            this.TeacherColumn.ReadOnly = true;
+            this.TeacherColumn.Width = 200;
+            // 
+            // SubjectColumn
+            // 
+            this.SubjectColumn.HeaderText = "Subject";
+            this.SubjectColumn.Name = "SubjectColumn";
+            this.SubjectColumn.ReadOnly = true;
+            this.SubjectColumn.Width = 200;
+            // 
+            // Average
+            // 
+            this.Average.HeaderText = "Average";
+            this.Average.Name = "Average";
+            this.Average.ReadOnly = true;
+            // 
+            // AssignmentsColumn
+            // 
+            this.AssignmentsColumn.HeaderText = "View Assignments";
+            this.AssignmentsColumn.Name = "AssignmentsColumn";
+            this.AssignmentsColumn.ReadOnly = true;
+            this.AssignmentsColumn.Text = "View Assignments";
+            this.AssignmentsColumn.UseColumnTextForButtonValue = true;
+            this.AssignmentsColumn.Width = 200;
             // 
             // StudentGradebook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 802);
+            this.Controls.Add(this.dgvStudentGradebook);
             this.Controls.Add(this.pnlNavigationBarHolder);
             this.Controls.Add(this.pnlTop);
             this.Name = "StudentGradebook";
@@ -247,9 +311,10 @@
             this.pnlLoginHistory.PerformLayout();
             this.pnlExit.ResumeLayout(false);
             this.pnlExit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlNavigationBarHolder.ResumeLayout(false);
             this.pnlNavigationBar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudentGradebook)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -272,5 +337,11 @@
         private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button btnGradebook;
         private System.Windows.Forms.Button btnSchedule;
+        private System.Windows.Forms.DataGridView dgvStudentGradebook;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PeriodColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TeacherColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubjectColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Average;
+        private System.Windows.Forms.DataGridViewButtonColumn AssignmentsColumn;
     }
 }
