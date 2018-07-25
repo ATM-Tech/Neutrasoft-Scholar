@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OutlookStyleControls;
 
 namespace Neutrasoft_Scholar.Forms.StudentPortal
 {
@@ -26,45 +27,36 @@ namespace Neutrasoft_Scholar.Forms.StudentPortal
 
         private void FillInTable()
         {
+            //Grabs a student's asignments
             Dictionary<string, List<Assignment>> assignments = Assignment.GetStudentAssignments(teacher, student);
 
-            foreach (Assignment assignment in assignments["Daily"])
+            //Creates a row for eacher assignment
+            foreach (KeyValuePair<string, List<Assignment>> assignmentPair in assignments)
             {
-                DataGridViewRow row = (DataGridViewRow)dgvStudentGradebookAssignments.RowTemplate.Clone();
-                row.CreateCells(dgvStudentGradebookAssignments);
-                row.Cells[0].Value = assignment.Name;
-                row.Cells[1].Value = assignment.Type;
-                row.Cells[2].Value = assignment.Grade;
-                row.Height = 50;
-
-                //Adds row to table
-                dgvStudentGradebookAssignments.Rows.Add(row);
+                foreach (Assignment assignment in assignmentPair.Value)
+                {
+                    OutlookGridRow row = new OutlookGridRow();
+                    row.CreateCells(dgvStudentGradebookAssignments, assignment.Name, assignment.Type, assignment.Grade);
+                    dgvStudentGradebookAssignments.Rows.Add(row);
+                }
             }
-            foreach (Assignment assignment in assignments["Quiz"])
+
+            //Sets grouping based on assignment type
+            dgvStudentGradebookAssignments.GroupTemplate.Column = dgvStudentGradebookAssignments.Columns["TypeColumn"];
+            dgvStudentGradebookAssignments.GroupTemplate.Height = 25;
+            dgvStudentGradebookAssignments.Sort(dgvStudentGradebookAssignments.Columns["TypeColumn"], ListSortDirection.Ascending);
+
+            //Adds additional height to non-grouping rows
+            foreach (OutlookGridRow row in dgvStudentGradebookAssignments.Rows)
             {
-                DataGridViewRow row = (DataGridViewRow)dgvStudentGradebookAssignments.RowTemplate.Clone();
-                row.CreateCells(dgvStudentGradebookAssignments);
-                row.Cells[0].Value = assignment.Name;
-                row.Cells[1].Value = assignment.Type;
-                row.Cells[2].Value = assignment.Grade;
-                row.Height = 50;
-
-                //Adds row to table
-                dgvStudentGradebookAssignments.Rows.Add(row);
+                if (row.Cells[1].Value != null)
+                {
+                    row.Height = 35;
+                    row.DefaultCellStyle.BackColor = Color.Beige;
+                }
             }
-            foreach (Assignment assignment in assignments["Test"])
-            {
-                DataGridViewRow row = (DataGridViewRow)dgvStudentGradebookAssignments.RowTemplate.Clone();
-                row.CreateCells(dgvStudentGradebookAssignments);
-                row.Cells[0].Value = assignment.Name;
-                row.Cells[1].Value = assignment.Type;
-                row.Cells[2].Value = assignment.Grade;
-                row.Height = 50;
 
-                //Adds row to table
-                dgvStudentGradebookAssignments.Rows.Add(row);
-            }
-            
+            dgvStudentGradebookAssignments.Refresh();
         }
     }
 }

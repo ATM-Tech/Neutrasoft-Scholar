@@ -179,12 +179,17 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\IconCollapse.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Neutrasoft Scholar Image.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Neutrasoft Scholar Image Smaller.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconExpand.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

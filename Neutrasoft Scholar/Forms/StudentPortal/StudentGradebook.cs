@@ -91,7 +91,6 @@ namespace Neutrasoft_Scholar.Forms.StudentPortal
                 row.Cells[1].Value = teacherName;
                 row.Cells[2].Value = teacher.Subject;
                 row.Cells[3].Value = average;
-                //row.Cells[4].Value = "View Assignments";
                 row.Height = 75;
 
                 //Adds row to table
@@ -101,6 +100,7 @@ namespace Neutrasoft_Scholar.Forms.StudentPortal
 
         private void dgvStudentGradebook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //If a column containing a button is clicked, open assignments breakdown based on row
             if (e.ColumnIndex == 4)
             {
                 for (int i = 0; i < 7; i++)

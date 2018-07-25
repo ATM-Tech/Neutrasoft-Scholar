@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvStudentGradebookAssignments = new System.Windows.Forms.DataGridView();
-            this.AssignmentNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvStudentGradebookAssignments = new OutlookStyleControls.OutlookGrid();
+            this.AssignmentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GradeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentGradebookAssignments)).BeginInit();
@@ -40,37 +40,43 @@
             this.dgvStudentGradebookAssignments.AllowUserToAddRows = false;
             this.dgvStudentGradebookAssignments.AllowUserToDeleteRows = false;
             this.dgvStudentGradebookAssignments.AllowUserToResizeColumns = false;
+            this.dgvStudentGradebookAssignments.AllowUserToResizeRows = false;
+            this.dgvStudentGradebookAssignments.CollapseIcon = global::Neutrasoft_Scholar.Properties.Resources.IconCollapse;
             this.dgvStudentGradebookAssignments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudentGradebookAssignments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.AssignmentNameColumn,
+            this.AssignmentColumn,
             this.TypeColumn,
             this.GradeColumn});
-            this.dgvStudentGradebookAssignments.Location = new System.Drawing.Point(-1, 1);
+            this.dgvStudentGradebookAssignments.ExpandIcon = global::Neutrasoft_Scholar.Properties.Resources.IconExpand;
+            this.dgvStudentGradebookAssignments.Location = new System.Drawing.Point(0, 0);
             this.dgvStudentGradebookAssignments.Name = "dgvStudentGradebookAssignments";
             this.dgvStudentGradebookAssignments.ReadOnly = true;
             this.dgvStudentGradebookAssignments.RowHeadersVisible = false;
-            this.dgvStudentGradebookAssignments.Size = new System.Drawing.Size(646, 723);
+            this.dgvStudentGradebookAssignments.Size = new System.Drawing.Size(644, 723);
             this.dgvStudentGradebookAssignments.TabIndex = 0;
             // 
-            // AssignmentNameColumn
+            // AssignmentColumn
             // 
-            this.AssignmentNameColumn.HeaderText = "Assignment";
-            this.AssignmentNameColumn.Name = "AssignmentNameColumn";
-            this.AssignmentNameColumn.ReadOnly = true;
-            this.AssignmentNameColumn.Width = 400;
+            this.AssignmentColumn.HeaderText = "Assignment";
+            this.AssignmentColumn.Name = "AssignmentColumn";
+            this.AssignmentColumn.ReadOnly = true;
+            this.AssignmentColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.AssignmentColumn.Width = 400;
             // 
             // TypeColumn
             // 
             this.TypeColumn.HeaderText = "Type";
             this.TypeColumn.Name = "TypeColumn";
             this.TypeColumn.ReadOnly = true;
+            this.TypeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // GradeColumn
             // 
             this.GradeColumn.HeaderText = "Grade";
             this.GradeColumn.Name = "GradeColumn";
             this.GradeColumn.ReadOnly = true;
-            this.GradeColumn.Width = 142;
+            this.GradeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.GradeColumn.Width = 140;
             // 
             // StudentGradebookAssignments
             // 
@@ -87,8 +93,8 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvStudentGradebookAssignments;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AssignmentNameColumn;
+        private OutlookStyleControls.OutlookGrid dgvStudentGradebookAssignments;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AssignmentColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn GradeColumn;
     }
