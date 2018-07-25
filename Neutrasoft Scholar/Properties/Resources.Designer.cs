@@ -63,6 +63,26 @@ namespace Neutrasoft_Scholar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IconCollapse {
+            get {
+                object obj = ResourceManager.GetObject("IconCollapse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconExpand {
+            get {
+                object obj = ResourceManager.GetObject("IconExpand", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Neutrasoft_Scholar_Image {
             get {
                 object obj = ResourceManager.GetObject("Neutrasoft Scholar Image", resourceCulture);
