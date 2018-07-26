@@ -30,7 +30,7 @@ namespace Neutrasoft_Scholar.Forms.StudentPortal
             //Grabs a student's asignments
             Dictionary<string, List<Assignment>> assignments = Assignment.GetStudentAssignments(teacher, student);
 
-            //Creates a row for eacher assignment
+            //Creates a row for each assignment
             foreach (KeyValuePair<string, List<Assignment>> assignmentPair in assignments)
             {
                 foreach (Assignment assignment in assignmentPair.Value)

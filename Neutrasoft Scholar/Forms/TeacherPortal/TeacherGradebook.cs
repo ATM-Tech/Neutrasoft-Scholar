@@ -57,6 +57,13 @@ namespace Neutrasoft_Scholar.Forms.TeacherPortal
         {
             manager.OpenTeacherSchedule(this);
         }
+
+        private void llbAssignments_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            TeacherGradebookAssignments teacherGradebookAssignments = new TeacherGradebookAssignments(manager.ActiveTeacher, this);
+            teacherGradebookAssignments.ShowDialog();
+        }
+
     }
 }
 

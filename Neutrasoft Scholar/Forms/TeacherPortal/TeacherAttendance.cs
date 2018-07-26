@@ -199,43 +199,48 @@ namespace Neutrasoft_Scholar.Forms.TeacherPortal
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string query = "";
-            attendanceList = new List<string>();
-            //Iterates through rows and add attendance state to list
-            foreach (DataGridViewRow row in dgvTeacherAttendance.Rows)
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to submit this attendance? It cannot be edited", "Confirmation", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                if (Convert.ToBoolean(row.Cells[1].Value))
+                string query = "";
+                attendanceList = new List<string>();
+                //Iterates through rows and add attendance state to list
+                foreach (DataGridViewRow row in dgvTeacherAttendance.Rows)
                 {
-                    attendanceList.Add("Present");
+                    if (Convert.ToBoolean(row.Cells[1].Value))
+                    {
+                        attendanceList.Add("Present");
+                    }
+                    else if (Convert.ToBoolean(row.Cells[2].Value))
+                    {
+                        attendanceList.Add("Tardy");
+                    }
+                    else if (Convert.ToBoolean(row.Cells[3].Value))
+                    {
+                        attendanceList.Add("Absent");
+                    }
+                    else
+                    {
+                        MessageBox.Show("You did not select an attendance state for all students");
+                        return;
+                    }
                 }
-                else if (Convert.ToBoolean(row.Cells[2].Value))
+
+                for (int i = 0; i < studentList.Count; i++)
                 {
-                    attendanceList.Add("Tardy");
+                    //Builds insert query with StudentID and the Attendance states from attendanceList
+                    query += String.Format("INSERT INTO Attendance (StudentID,Date,Period,Attendance,Excused) values ({0},getdate(),{1},'{2}',0);", studentList[i].StudentID, cmbPeriod.SelectedIndex, attendanceList[i]);
                 }
-                else if (Convert.ToBoolean(row.Cells[3].Value))
-                {
-                    attendanceList.Add("Absent");
-                }
-                else
-                {
-                    MessageBox.Show("You did not select an attendance state for all students");
-                    return;
-                }
+
+                //Runs query
+                SQLDatabase.WriteToSQLServer(query);
+
+                MessageBox.Show("Attendance Logged");
+                cmbPeriod.SelectedIndex = 0;
+                dgvTeacherAttendance.Visible = false;
+                btnSubmit.Visible = false;
             }
-
-            for (int i = 0; i < studentList.Count; i++)
-            {
-                //Builds insert query with StudentID and the Attendance states from attendanceList
-                query += String.Format("INSERT INTO Attendance (StudentID,Date,Period,Attendance,Excused) values ({0},getdate(),{1},'{2}',0);", studentList[i].StudentID, cmbPeriod.SelectedIndex, attendanceList[i]);
-            }
-
-            //Runs query
-            SQLDatabase.WriteToSQLServer(query);
-
-            MessageBox.Show("Attendance Logged");
-            cmbPeriod.SelectedIndex = 0;
-            dgvTeacherAttendance.Visible = false;
-            btnSubmit.Visible = false;
+            
         }
 
     }

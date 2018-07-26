@@ -92,6 +92,18 @@
     <Compile Include="Forms\TeacherPortal\TeacherGradebook.Designer.cs">
       <DependentUpon>TeacherGradebook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TeacherPortal\TeacherGradebookAssignments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TeacherPortal\TeacherGradebookAssignments.Designer.cs">
+      <DependentUpon>TeacherGradebookAssignments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TeacherPortal\TeacherGradebookNewAssignment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TeacherPortal\TeacherGradebookNewAssignment.Designer.cs">
+      <DependentUpon>TeacherGradebookNewAssignment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TeacherPortal\TeacherHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +153,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TeacherPortal\TeacherGradebook.resx">
       <DependentUpon>TeacherGradebook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TeacherPortal\TeacherGradebookAssignments.resx">
+      <DependentUpon>TeacherGradebookAssignments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TeacherPortal\TeacherGradebookNewAssignment.resx">
+      <DependentUpon>TeacherGradebookNewAssignment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TeacherPortal\TeacherHome.resx">
       <DependentUpon>TeacherHome.cs</DependentUpon>

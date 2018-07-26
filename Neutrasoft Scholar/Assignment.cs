@@ -20,6 +20,7 @@ namespace Neutrasoft_Scholar
 
 
 
+
         public static string GetLetterGrade(int grade)
         {
             if (grade >= 95)
@@ -112,6 +113,42 @@ namespace Neutrasoft_Scholar
                 else if (assignmentTypes[i] == "Test")
                 {
                     assignments["Test"].Add(new Assignment(assignmentNames[i], assignmentTypes[i], assignmentGrades[i]));
+                }
+            }
+
+            return assignments;
+        }
+        public static Dictionary<string, List<Assignment>> GetTeacherAssignments(Teacher teacher)
+        {
+            //Grabs a teacher's assignments and types
+            string teacherAssignmentsQuery = String.Format("SELECT Assignments,AssignmentTypes FROM Teachers WHERE TeacherID={0}", teacher.TeacherID);
+            Dictionary<string, List<string>> output = SQLDatabase.ReadFromSQLServer(teacherAssignmentsQuery, new List<string> { "Assignments", "AssignmentTypes" });
+
+            //Splits comma'ed list into a real list
+            List<string> assignmentNames = output["Assignments"][0].Split(',').ToList();
+            List<string> assignmentTypes = output["AssignmentTypes"][0].Split(',').ToList();
+
+            //Creates output dictionary
+            Dictionary<string, List<Assignment>> assignments = new Dictionary<string, List<Assignment>>
+            {
+                { "Daily", new List<Assignment>() },
+                { "Quiz", new List<Assignment>() },
+                { "Test", new List<Assignment>() }
+            };
+            //Sorts all Names, Types, and Grades into their respective lists in the dictionary.
+            for (int i = 0; i < assignmentNames.Count; i++)
+            {
+                if (assignmentTypes[i] == "Daily")
+                {
+                    assignments["Daily"].Add(new Assignment(assignmentNames[i], assignmentTypes[i], -1));
+                }
+                else if (assignmentTypes[i] == "Quiz")
+                {
+                    assignments["Quiz"].Add(new Assignment(assignmentNames[i], assignmentTypes[i], -1));
+                }
+                else if (assignmentTypes[i] == "Test")
+                {
+                    assignments["Test"].Add(new Assignment(assignmentNames[i], assignmentTypes[i], -1));
                 }
             }
 
