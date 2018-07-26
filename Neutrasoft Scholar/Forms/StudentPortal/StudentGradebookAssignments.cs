@@ -36,7 +36,16 @@ namespace Neutrasoft_Scholar.Forms.StudentPortal
                 foreach (Assignment assignment in assignmentPair.Value)
                 {
                     OutlookGridRow row = new OutlookGridRow();
-                    row.CreateCells(dgvStudentGradebookAssignments, assignment.Name, assignment.Type, assignment.Grade);
+                    string grade;
+                    if (assignment.Grade == -1)
+                    {
+                        grade = "No Grade";
+                    }
+                    else
+                    {
+                        grade = String.Format($"{assignment.Grade} ({Assignment.GetLetterGrade(assignment.Grade)})");
+                    }
+                    row.CreateCells(dgvStudentGradebookAssignments, assignment.Name, assignment.Type, grade);
                     dgvStudentGradebookAssignments.Rows.Add(row);
                 }
             }

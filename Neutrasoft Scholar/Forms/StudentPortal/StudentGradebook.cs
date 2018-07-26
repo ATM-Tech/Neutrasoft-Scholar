@@ -90,7 +90,7 @@ namespace Neutrasoft_Scholar.Forms.StudentPortal
                 row.Cells[0].Value = period;
                 row.Cells[1].Value = teacherName;
                 row.Cells[2].Value = teacher.Subject;
-                row.Cells[3].Value = average;
+                row.Cells[3].Value = String.Format($"{average} ({Assignment.GetLetterGrade(average)})");
                 row.Height = 75;
 
                 //Adds row to table
