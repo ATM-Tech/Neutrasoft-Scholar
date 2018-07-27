@@ -203,9 +203,9 @@ namespace Neutrasoft_Scholar
                 }                
             }
             //Calculates all weighted averages
-            decimal dailyAverage = dailyTotal / dailyAssignments.Count;
-            decimal quizAverage = quizTotal / quizAssignments.Count;
-            decimal testAverage = testTotal / testAssignments.Count;
+            decimal dailyAverage = dailyTotal / dailyAssignmentCount;
+            decimal quizAverage = quizTotal / quizAssignmentCount;
+            decimal testAverage = testTotal / testAssignmentCount;
 
             decimal dailyRounded = Math.Round(dailyAverage);
             decimal quizRounded = Math.Round(quizAverage);
