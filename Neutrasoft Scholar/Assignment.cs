@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Neutrasoft_Scholar
 {
-    class Assignment
+    public class Assignment
     {
         public string Name { get; }
         public string Type { get; }
@@ -71,7 +71,7 @@ namespace Neutrasoft_Scholar
         }
 
         //Returns sorted list of assignments and grades
-        public static Dictionary<string, List<Assignment>> GetStudentAssignments(Teacher teacher, Student student)
+        public static List<Assignment> GetStudentAssignments(Teacher teacher, Student student)
         {
             //Grabs a teacher's assignments and types
             string teacherAssignmentsQuery = String.Format("SELECT Assignments,AssignmentTypes FROM Teachers WHERE TeacherID={0}", teacher.TeacherID);
@@ -92,28 +92,11 @@ namespace Neutrasoft_Scholar
                 assignmentGrades.Add(int.Parse(gradeString));
             }
 
-            //Creates output dictionary
-            Dictionary<string, List<Assignment>> assignments = new Dictionary<string, List<Assignment>>
-            {
-                { "Daily", new List<Assignment>() },
-                { "Quiz", new List<Assignment>() },
-                { "Test", new List<Assignment>() }
-            };
+            List<Assignment> assignments = new List<Assignment>();
             //Sorts all Names, Types, and Grades into their respective lists in the dictionary.
             for (int i = 0; i < assignmentNames.Count; i++)
             {
-                if (assignmentTypes[i] == "Daily")
-                {
-                    assignments["Daily"].Add(new Assignment(assignmentNames[i], assignmentTypes[i], assignmentGrades[i]));
-                }
-                else if (assignmentTypes[i] == "Quiz")
-                {
-                    assignments["Quiz"].Add(new Assignment(assignmentNames[i], assignmentTypes[i], assignmentGrades[i]));
-                }
-                else if (assignmentTypes[i] == "Test")
-                {
-                    assignments["Test"].Add(new Assignment(assignmentNames[i], assignmentTypes[i], assignmentGrades[i]));
-                }
+                assignments.Add(new Assignment(assignmentNames[i], assignmentTypes[i], assignmentGrades[i]));
             }
 
             return assignments;
@@ -153,6 +136,87 @@ namespace Neutrasoft_Scholar
             }
 
             return assignments;
+        }
+        public static decimal CalculateAverage(List<Assignment> assignments)
+        {
+            List<Assignment> dailyAssignments = new List<Assignment>();
+            List<Assignment> quizAssignments = new List<Assignment>();
+            List<Assignment> testAssignments = new List<Assignment>();
+
+            //Seperates assignments by type
+            foreach (Assignment assignment in assignments)
+            {
+                if (assignment.Type == "Daily")
+                {
+                    dailyAssignments.Add(assignment);
+                }
+                else if (assignment.Type == "Quiz")
+                {
+                    quizAssignments.Add(assignment);
+                }
+                else if (assignment.Type == "Test")
+                {
+                    testAssignments.Add(assignment);
+                }
+            }
+            //Creates associated variable
+            int dailyTotal = 0;
+            int quizTotal = 0;
+            int testTotal = 0;
+            int dailyAssignmentCount = dailyAssignments.Count;
+            int quizAssignmentCount = quizAssignments.Count;
+            int testAssignmentCount = testAssignments.Count;
+            //Adds grades to each total
+            foreach (Assignment assignment in dailyAssignments)
+            {
+                if (assignment.Grade != -1)
+                {
+                    dailyTotal += assignment.Grade;
+
+                }
+                else
+                {
+                    dailyAssignmentCount--;
+                }
+            }
+            foreach (Assignment assignment in quizAssignments)
+            {
+                if (assignment.Grade != -1)
+                {
+                    quizTotal += assignment.Grade;
+
+                }
+                else
+                {
+                    quizAssignmentCount--;
+                }
+            }
+            foreach (Assignment assignment in testAssignments)
+            {
+                if (assignment.Grade != -1)
+                {
+                    testTotal += assignment.Grade;
+                }
+                else
+                {
+                    testAssignmentCount--;
+                }                
+            }
+            //Calculates all weighted averages
+            decimal dailyAverage = dailyTotal / dailyAssignments.Count;
+            decimal quizAverage = quizTotal / quizAssignments.Count;
+            decimal testAverage = testTotal / testAssignments.Count;
+
+            decimal dailyRounded = Math.Round(dailyAverage);
+            decimal quizRounded = Math.Round(quizAverage);
+            decimal testRounded = Math.Round(testAverage);
+
+            decimal dailyWeighted = 20 * (dailyAverage / 100);
+            decimal quizWeighted = 30 * (quizAverage / 100);
+            decimal testWeighted = 50 * (testAverage / 100);
+
+            decimal average = dailyWeighted + quizWeighted + testWeighted;
+            return average;
         }
     }
 }

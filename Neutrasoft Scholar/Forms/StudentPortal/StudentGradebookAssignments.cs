@@ -28,27 +28,24 @@ namespace Neutrasoft_Scholar.Forms.StudentPortal
         private void FillInTable()
         {
             //Grabs a student's asignments
-            Dictionary<string, List<Assignment>> assignments = Assignment.GetStudentAssignments(teacher, student);
+            List<Assignment> assignments = Assignment.GetStudentAssignments(teacher, student);
 
             //Creates a row for each assignment
-            foreach (KeyValuePair<string, List<Assignment>> assignmentPair in assignments)
+            foreach (Assignment assignment in assignments)
             {
-                foreach (Assignment assignment in assignmentPair.Value)
+                OutlookGridRow row = new OutlookGridRow();
+                string grade;
+                if (assignment.Grade == -1)
                 {
-                    OutlookGridRow row = new OutlookGridRow();
-                    string grade;
-                    if (assignment.Grade == -1)
-                    {
-                        grade = "No Grade";
-                    }
-                    else
-                    {
-                        grade = String.Format($"{assignment.Grade} ({Assignment.GetLetterGrade(assignment.Grade)})");
-                    }
-                    row.CreateCells(dgvStudentGradebookAssignments, assignment.Name, assignment.Type, grade);
-                    dgvStudentGradebookAssignments.Rows.Add(row);
+                    grade = "No Grade";
                 }
-            }
+                else
+                {
+                    grade = String.Format($"{assignment.Grade} ({Assignment.GetLetterGrade(assignment.Grade)})");
+                }
+                row.CreateCells(dgvStudentGradebookAssignments, assignment.Name, assignment.Type, grade);
+                dgvStudentGradebookAssignments.Rows.Add(row);
+            }     
 
             //Sets grouping based on assignment type
             dgvStudentGradebookAssignments.GroupTemplate.Column = dgvStudentGradebookAssignments.Columns["TypeColumn"];

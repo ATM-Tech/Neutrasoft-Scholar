@@ -199,6 +199,7 @@ namespace Neutrasoft_Scholar.Forms.TeacherPortal
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            //Confirmation
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to submit this attendance? It cannot be edited", "Confirmation", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {

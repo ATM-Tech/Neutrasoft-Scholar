@@ -98,11 +98,23 @@
     <Compile Include="Forms\TeacherPortal\TeacherGradebookAssignments.Designer.cs">
       <DependentUpon>TeacherGradebookAssignments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TeacherPortal\TeacherGradebookEditGrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TeacherPortal\TeacherGradebookEditGrade.Designer.cs">
+      <DependentUpon>TeacherGradebookEditGrade.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TeacherPortal\TeacherGradebookNewAssignment.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\TeacherPortal\TeacherGradebookNewAssignment.Designer.cs">
       <DependentUpon>TeacherGradebookNewAssignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TeacherPortal\TeacherGradebookStudentAssignments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TeacherPortal\TeacherGradebookStudentAssignments.Designer.cs">
+      <DependentUpon>TeacherGradebookStudentAssignments.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\TeacherPortal\TeacherHome.cs">
       <SubType>Form</SubType>
@@ -157,8 +169,14 @@
     <EmbeddedResource Include="Forms\TeacherPortal\TeacherGradebookAssignments.resx">
       <DependentUpon>TeacherGradebookAssignments.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TeacherPortal\TeacherGradebookEditGrade.resx">
+      <DependentUpon>TeacherGradebookEditGrade.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\TeacherPortal\TeacherGradebookNewAssignment.resx">
       <DependentUpon>TeacherGradebookNewAssignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TeacherPortal\TeacherGradebookStudentAssignments.resx">
+      <DependentUpon>TeacherGradebookStudentAssignments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TeacherPortal\TeacherHome.resx">
       <DependentUpon>TeacherHome.cs</DependentUpon>

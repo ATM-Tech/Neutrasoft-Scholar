@@ -44,13 +44,12 @@
             this.btnAttendance = new System.Windows.Forms.Button();
             this.btnGradebook = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
-            this.dgvTeacherAttendance = new System.Windows.Forms.DataGridView();
-            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PresentColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.TardyColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.AbsentColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.cmbPeriod = new System.Windows.Forms.ComboBox();
             this.llbAssignments = new System.Windows.Forms.LinkLabel();
+            this.dgvTeacherGradebook = new System.Windows.Forms.DataGridView();
+            this.StudentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AverageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AssignmentsColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnlTop.SuspendLayout();
             this.pnlMyAccount.SuspendLayout();
             this.pnlLoginHistory.SuspendLayout();
@@ -58,7 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlNavigationBarHolder.SuspendLayout();
             this.pnlNavigationBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherAttendance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherGradebook)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -238,46 +237,6 @@
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // dgvTeacherAttendance
-            // 
-            this.dgvTeacherAttendance.AllowUserToAddRows = false;
-            this.dgvTeacherAttendance.AllowUserToResizeColumns = false;
-            this.dgvTeacherAttendance.AllowUserToResizeRows = false;
-            this.dgvTeacherAttendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTeacherAttendance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NameColumn,
-            this.PresentColumn,
-            this.TardyColumn,
-            this.AbsentColumn});
-            this.dgvTeacherAttendance.Location = new System.Drawing.Point(212, 229);
-            this.dgvTeacherAttendance.Name = "dgvTeacherAttendance";
-            this.dgvTeacherAttendance.RowHeadersVisible = false;
-            this.dgvTeacherAttendance.Size = new System.Drawing.Size(950, 576);
-            this.dgvTeacherAttendance.TabIndex = 6;
-            this.dgvTeacherAttendance.Visible = false;
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.HeaderText = "Name";
-            this.NameColumn.Name = "NameColumn";
-            this.NameColumn.ReadOnly = true;
-            this.NameColumn.Width = 300;
-            // 
-            // PresentColumn
-            // 
-            this.PresentColumn.HeaderText = "Present?";
-            this.PresentColumn.Name = "PresentColumn";
-            // 
-            // TardyColumn
-            // 
-            this.TardyColumn.HeaderText = "Tardy?";
-            this.TardyColumn.Name = "TardyColumn";
-            // 
-            // AbsentColumn
-            // 
-            this.AbsentColumn.HeaderText = "Absent?";
-            this.AbsentColumn.Name = "AbsentColumn";
-            // 
             // cmbPeriod
             // 
             this.cmbPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -298,6 +257,7 @@
             this.cmbPeriod.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cmbPeriod.Size = new System.Drawing.Size(950, 28);
             this.cmbPeriod.TabIndex = 5;
+            this.cmbPeriod.SelectedIndexChanged += new System.EventHandler(this.cmbPeriod_SelectedIndexChanged);
             // 
             // llbAssignments
             // 
@@ -311,13 +271,55 @@
             this.llbAssignments.Text = "View My Assignments";
             this.llbAssignments.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbAssignments_LinkClicked);
             // 
+            // dgvTeacherGradebook
+            // 
+            this.dgvTeacherGradebook.AllowUserToAddRows = false;
+            this.dgvTeacherGradebook.AllowUserToDeleteRows = false;
+            this.dgvTeacherGradebook.AllowUserToResizeColumns = false;
+            this.dgvTeacherGradebook.AllowUserToResizeRows = false;
+            this.dgvTeacherGradebook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTeacherGradebook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.StudentColumn,
+            this.AverageColumn,
+            this.AssignmentsColumn});
+            this.dgvTeacherGradebook.Location = new System.Drawing.Point(209, 229);
+            this.dgvTeacherGradebook.Name = "dgvTeacherGradebook";
+            this.dgvTeacherGradebook.ReadOnly = true;
+            this.dgvTeacherGradebook.RowHeadersVisible = false;
+            this.dgvTeacherGradebook.Size = new System.Drawing.Size(955, 576);
+            this.dgvTeacherGradebook.TabIndex = 8;
+            this.dgvTeacherGradebook.Visible = false;
+            this.dgvTeacherGradebook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTeacherGradebook_CellContentClick);
+            // 
+            // StudentColumn
+            // 
+            this.StudentColumn.HeaderText = "Student";
+            this.StudentColumn.Name = "StudentColumn";
+            this.StudentColumn.ReadOnly = true;
+            this.StudentColumn.Width = 500;
+            // 
+            // AverageColumn
+            // 
+            this.AverageColumn.HeaderText = "Average";
+            this.AverageColumn.Name = "AverageColumn";
+            this.AverageColumn.ReadOnly = true;
+            // 
+            // AssignmentsColumn
+            // 
+            this.AssignmentsColumn.HeaderText = "Edit/View Assignments";
+            this.AssignmentsColumn.Name = "AssignmentsColumn";
+            this.AssignmentsColumn.ReadOnly = true;
+            this.AssignmentsColumn.Text = "Edit/View Assignments";
+            this.AssignmentsColumn.UseColumnTextForButtonValue = true;
+            this.AssignmentsColumn.Width = 200;
+            // 
             // TeacherGradebook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 802);
+            this.Controls.Add(this.dgvTeacherGradebook);
             this.Controls.Add(this.llbAssignments);
-            this.Controls.Add(this.dgvTeacherAttendance);
             this.Controls.Add(this.cmbPeriod);
             this.Controls.Add(this.pnlNavigationBarHolder);
             this.Controls.Add(this.pnlTop);
@@ -334,7 +336,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlNavigationBarHolder.ResumeLayout(false);
             this.pnlNavigationBar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherAttendance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherGradebook)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,12 +360,11 @@
         private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button btnGradebook;
         private System.Windows.Forms.Button btnSchedule;
-        private System.Windows.Forms.DataGridView dgvTeacherAttendance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn PresentColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn TardyColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn AbsentColumn;
         private System.Windows.Forms.ComboBox cmbPeriod;
         private System.Windows.Forms.LinkLabel llbAssignments;
+        private System.Windows.Forms.DataGridView dgvTeacherGradebook;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AverageColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn AssignmentsColumn;
     }
 }
