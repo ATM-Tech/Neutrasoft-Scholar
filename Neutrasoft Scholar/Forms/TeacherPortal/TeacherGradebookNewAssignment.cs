@@ -28,7 +28,7 @@ namespace Neutrasoft_Scholar.Forms.TeacherPortal
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to create this assignment?", "Confirmation", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                //Grav teacher's assignments
+                //Grab teacher's assignments
                 string teacherAssignmentsQuery = String.Format("SELECT Assignments,AssignmentTypes FROM Teachers WHERE TeacherID={0}", teacher.TeacherID);
                 Dictionary<string, List<string>> teacherAssignmentsOutput = SQLDatabase.ReadFromSQLServer(teacherAssignmentsQuery, new List<string> { "Assignments", "AssignmentTypes" });
 
@@ -55,6 +55,7 @@ namespace Neutrasoft_Scholar.Forms.TeacherPortal
 
                 }
 
+                MessageBox.Show("Assignment Created.");
                 this.Close();
             }
         }

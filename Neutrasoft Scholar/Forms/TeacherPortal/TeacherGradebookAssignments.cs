@@ -28,6 +28,7 @@ namespace Neutrasoft_Scholar.Forms.TeacherPortal
         {
             //Clears Old rows
             dgvTeacherGradebookAssignments.Rows.Clear();
+            dgvTeacherGradebookAssignments.ClearGroups();
             dgvTeacherGradebookAssignments.Refresh();
             
 
@@ -66,7 +67,7 @@ namespace Neutrasoft_Scholar.Forms.TeacherPortal
         {
             TeacherGradebookNewAssignment teacherGradebookNewAssignment = new TeacherGradebookNewAssignment(teacher, this);
             teacherGradebookNewAssignment.ShowDialog();
-            this.Close();
+            FillInTable();
         }
     }
 }
