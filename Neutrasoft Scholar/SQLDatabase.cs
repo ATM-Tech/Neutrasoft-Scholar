@@ -14,7 +14,8 @@ namespace Neutrasoft_Scholar
         private static SqlConnection GetSQLConnectionString()
         {
             //Creates connection string.
-            SqlConnection sqlConnection = new SqlConnection("user id=NeutrasoftScholarAccess;" + "password=***REMOVED***;" + "server=***REMOVED***\\BASE;" + "Integrated Security=false;" + "Database=Neutrasoft Scholar;" + "Timeout=30;");
+            SqlConnection sqlConnection = new SqlConnection("user id=NeutrasoftScholarAccess;" + "password=***REMOVED***;" + "server=***REMOVED***\\BASE;" + "Integrated Security=false;" + "Database=Neutrasoft Scholar;" + 
+"Timeout=30;");
             return sqlConnection;
         }
         public static void WriteToSQLServer(string query)
