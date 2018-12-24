@@ -1,4 +1,4 @@
-# Neutrasoft-Scholar
+# Neutrasoft Scholar
 ```diff
 - CURRENTLY NON-FUNCTIONAL AS SQL SERVER DATABASE IS NOT ACCESSIBLE OVER THE INTERNET.
 ```
